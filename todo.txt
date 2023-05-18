@@ -1,0 +1,23 @@
+Today target - 16th may
+
+Layout - Navbar, Sidebr, 
+Authentication with next-auth
+Searchbar
+Properties component
+
+
+
+
+next-auth
+
+check if not user -> /login else home
+login functionality
+
+
+now - full Authentication
+
+backend api route
+login page
+login functionality
+navigating user
+
