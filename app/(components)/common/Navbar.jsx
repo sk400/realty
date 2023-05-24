@@ -10,13 +10,25 @@ import {
   Text,
 } from "@chakra-ui/react";
 import { HamburgerIcon } from "@chakra-ui/icons";
-import { useSession } from "next-auth/react";
+import { getProviders, signIn, useSession } from "next-auth/react";
 import { usePathname, useRouter } from "next/navigation";
+import { FcGoogle } from "react-icons/fc";
+import { useEffect, useState } from "react";
 
 const Navbar = ({ btnRef, onOpen }) => {
   const { data: session } = useSession();
   const router = useRouter();
-  const pathname = usePathname();
+  // const pathname = usePathname();
+  const [providers, setProviders] = useState([]);
+
+  useEffect(() => {
+    const setupProviders = async () => {
+      const res = await getProviders();
+      setProviders(res);
+    };
+
+    setupProviders();
+  }, []);
 
   return (
     <Flex
@@ -26,7 +38,9 @@ const Navbar = ({ btnRef, onOpen }) => {
         bgColor: "white",
         height: "70px",
         px: 5,
-        display: pathname !== "/login" ? "flex" : "none",
+        position: "sticky",
+        top: 0,
+        right: 0,
       }}
     >
       <IconButton
@@ -45,13 +59,29 @@ const Navbar = ({ btnRef, onOpen }) => {
           <Avatar name="Dan Abrahmov" src={session?.user?.image} />
         </HStack>
       ) : (
-        <Button
-          variant="solid"
-          colorScheme="messenger"
-          onClick={() => router.push("/login")}
-        >
-          Sign in
-        </Button>
+        <>
+          {Object.values(providers).map((provider) => (
+            <Button
+              key={provider.name}
+              size="lg"
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                color: "black",
+                bgColor: "white",
+                px: 3,
+                py: 2,
+              }}
+              leftIcon={<FcGoogle />}
+              onClick={() => {
+                signIn(provider.id);
+              }}
+            >
+              Sign in
+            </Button>
+          ))}
+        </>
       )}
     </Flex>
   );

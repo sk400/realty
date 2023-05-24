@@ -1,7 +1,13 @@
-import React from "react";
+import { Box } from "../(components)/chakraui";
 
-const page = () => {
-  return <div>page</div>;
+const Agents = () => {
+  return (
+    <Box
+      sx={{
+        height: "90vh",
+      }}
+    ></Box>
+  );
 };
 
-export default page;
+export default Agents;

@@ -11,10 +11,17 @@ const Layout = ({ children }) => {
     <Box
       sx={{
         display: "flex",
-        alignItems: "center",
+        // alignItems: "center",
+        height: "100vh",
       }}
     >
-      <Box>
+      <Box
+        sx={{
+          position: "sticky",
+          top: 0,
+          left: 0,
+        }}
+      >
         <Sidebar btnRef={btnRef} isOpen={isOpen} onClose={onClose} />
       </Box>
       <Box
@@ -23,7 +30,9 @@ const Layout = ({ children }) => {
         }}
       >
         <Navbar btnRef={btnRef} onOpen={onOpen} />
-        <Box sx={{ flex: 1 }}>{children}</Box>
+        <Box sx={{ flex: 1 }} bgColor="#fafafa">
+          {children}
+        </Box>
       </Box>
     </Box>
   );

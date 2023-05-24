@@ -3,13 +3,14 @@
 import { Box, Button, Center, Heading, VStack } from "@chakra-ui/react";
 import { FcGoogle } from "react-icons/fc";
 
-import { signIn, getProviders } from "next-auth/react";
+import { signIn, getProviders, useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 
 const Login = () => {
   const [providers, setProviders] = useState([]);
+  const { data: session } = useSession();
   const router = useRouter();
 
   useEffect(() => {
@@ -52,7 +53,9 @@ const Login = () => {
             leftIcon={<FcGoogle />}
             onClick={() => {
               signIn(provider.id);
-              router.push("/");
+              if (session?.user) {
+                router.replace("/");
+              }
             }}
           >
             Sign in with google

@@ -11,6 +11,16 @@ import {
   Avatar,
   Icon,
   Tooltip,
+  Flex,
+  Spacer,
+  HStack,
+  Text,
+  SimpleGrid,
+  Card,
+  CardBody,
+  CardFooter,
+  Divider,
+  Image,
 } from "@chakra-ui/react";
 
 export {
@@ -25,4 +35,14 @@ export {
   Avatar,
   Icon,
   Tooltip,
+  Flex,
+  Spacer,
+  Text,
+  HStack,
+  SimpleGrid,
+  Card,
+  CardBody,
+  CardFooter,
+  Divider,
+  Image,
 };

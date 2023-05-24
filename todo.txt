@@ -1,23 +1,19 @@
-Today target - 16th may
+Today target - homepage, agent page
 
-Layout - Navbar, Sidebr, 
-Authentication with next-auth
-Searchbar
-Properties component
+
+datafetching
 
 
 
 
-next-auth
-
-check if not user -> /login else home
-login functionality
 
 
-now - full Authentication
 
-backend api route
-login page
-login functionality
-navigating user
+
+
+
+
+ideas
+//featured properties and agents in home page
+
 

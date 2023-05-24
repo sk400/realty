@@ -1,7 +1,19 @@
-import { Heading } from "./(components)/chakraui";
+import { fetchProperties } from "@/utils/fetchProperties";
+import { HomePageContents } from "./(components)";
+import { Box } from "./(components)/chakraui";
 
-const Home = () => {
-  return <div>{/* <Heading>Let's begin</Heading> */}</div>;
+const Home = async () => {
+  const properties = await fetchProperties(20);
+
+  return (
+    <Box
+      sx={{
+        height: "90vh",
+      }}
+    >
+      <HomePageContents properties={properties} />
+    </Box>
+  );
 };
 
 export default Home;
