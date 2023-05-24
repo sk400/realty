@@ -2,10 +2,15 @@
 
 import {
   Badge,
+  Box,
   Button,
   Center,
   Flex,
+  Grid,
+  GridItem,
+  HStack,
   Heading,
+  Icon,
   Image,
   Link,
   Stack,
@@ -13,54 +18,127 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 
+import { HiLocationMarker } from "react-icons/hi";
+import { MdMail, MdOutlineStar } from "react-icons/md";
+import { FaGlobe } from "react-icons/fa";
+
 export default function AgentCard({ agent }) {
+  console.log(agent);
   return (
-    <Center py={6}>
-      <Stack
-        borderWidth="1px"
-        borderRadius="lg"
-        w={{ sm: "100%", md: "540px" }}
-        height={{ sm: "476px", md: "20rem" }}
-        direction={{ base: "column", md: "row" }}
-        bg={useColorModeValue("white", "gray.900")}
-        boxShadow={"2xl"}
-        padding={4}
+    <Flex
+      spacing={2}
+      sx={{
+        mb: 5,
+
+        width: "100%",
+        bgColor: "white",
+        borderRadius: "15px",
+        maxWidth: "900px",
+        flexDirection: {
+          base: "column",
+          sm: "row",
+        },
+      }}
+    >
+      <Box
+        height="250px"
+        flexBasis="30%"
+        sx={{
+          p: 3,
+        }}
       >
-        <Flex flex={1} bg="blue.200">
-          <Image
-            objectFit="cover"
-            boxSize="100%"
-            src={agent?.photo?.href}
-            borderRadius="lg"
-          />
-        </Flex>
-        <Stack
-          flex={1}
-          flexDirection="column"
-          justifyContent="center"
-          alignItems="center"
-          p={1}
-          pt={2}
-        >
-          <Heading fontSize={"2xl"} fontFamily={"body"}>
-            {agent?.full_name}
-          </Heading>
-          <Text fontWeight={600} color={"gray.500"} size="sm" mb={4}>
-            {agent?.email}
-          </Text>
-          <Text
-            textAlign={"center"}
-            color={useColorModeValue("gray.700", "gray.400")}
-            px={3}
+        <Image
+          src={agent?.photo?.href}
+          alt="profile-photo"
+          boxSize="100%"
+          borderRadius="lg"
+          objectFit="cover"
+        />
+      </Box>
+      <Box
+        bgColor=""
+        height="250px"
+        flexBasis="70%"
+        sx={{
+          p: 3,
+        }}
+      >
+        <Stack flexDirection="column" alignItems="start">
+          {/* agent fullname */}
+          <Heading>{agent?.full_name}</Heading>
+          {/* location */}
+          <HStack>
+            <Icon w="30px" h="35px" mt={2} color="#808191">
+              <HiLocationMarker />
+            </Icon>
+            <Text fontSize="20px" fontWeight="semibold" color="#514E4E">
+              {agent?.address?.city} {agent?.address?.country}
+            </Text>
+          </HStack>
+
+          {/* slogan */}
+          {agent?.slogan && (
+            <Text fontSize="16px" fontWeight="medium" color="#808191">
+              {agent?.slogan}
+            </Text>
+          )}
+
+          {/* contacts */}
+          <Box
+            sx={{
+              mt: 3,
+              pl: 1,
+            }}
           >
-            Actress, musician, songwriter and artist. PM for work inquires or
-            <Link href={"#"} color={"blue.400"}>
-              #tag
-            </Link>
-            me in your posts
-          </Text>
+            <HStack>
+              <Icon
+                sx={{
+                  mt: 2,
+                  color: "#808191",
+                  width: "24px",
+                  height: "24px",
+                }}
+              >
+                <MdMail />
+              </Icon>
+              <Text>{agent?.email}</Text>
+            </HStack>
+
+            <HStack>
+              <Icon
+                sx={{
+                  mt: 2,
+                  color: "#808191",
+                  width: "24px",
+                  height: "24px",
+                }}
+              >
+                <FaGlobe />
+              </Icon>
+
+              <Link href={agent?.web_url}>
+                <Text>Website</Text>
+              </Link>
+            </HStack>
+          </Box>
+
+          {/* rating */}
+
+          <HStack alignItems="center">
+            <Icon
+              color="yellow.300"
+              sx={{
+                width: "24px",
+                height: "24px",
+                mt: 2,
+              }}
+            >
+              <MdOutlineStar />
+            </Icon>
+            <Text>{agent?.agent_rating}</Text>
+          </HStack>
         </Stack>
-      </Stack>
-    </Center>
+      </Box>
+    </Flex>
   );
 }

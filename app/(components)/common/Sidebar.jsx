@@ -131,7 +131,7 @@ const Sidebar = ({ btnRef, isOpen, onClose }) => {
       <Box
         bgColor="white"
         sx={{
-          display: { sm: "none", md: "none", lg: "block" },
+          display: { base: "none", sm: "none", md: "none", lg: "block" },
           position: "relative",
           height: "100vh",
           width: "250px",

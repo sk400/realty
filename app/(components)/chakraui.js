@@ -21,6 +21,7 @@ import {
   CardFooter,
   Divider,
   Image,
+  VStack,
 } from "@chakra-ui/react";
 
 export {
@@ -45,4 +46,5 @@ export {
   CardFooter,
   Divider,
   Image,
+  VStack,
 };

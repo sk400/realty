@@ -6,6 +6,7 @@ const Agents = () => {
     <Box
       sx={{
         height: "90vh",
+        overflowY: "auto",
       }}
     >
       <AgentsPageContents />

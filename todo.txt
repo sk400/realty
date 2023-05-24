@@ -1,7 +1,7 @@
-Today target - homepage, agent page
+Today target -   agentdetail
 
 
-datafetching
+
 
 
 

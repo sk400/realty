@@ -12,7 +12,6 @@ const AgentsPageContents = async () => {
         p: 5,
       }}
     >
-      <Heading>All available agents in US</Heading>
       <Agents agents={agents} />
     </Box>
   );
