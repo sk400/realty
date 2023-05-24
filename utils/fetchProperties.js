@@ -4,7 +4,7 @@ export const fetchProperties = async (limit) => {
     method: "POST",
     headers: {
       "content-type": "application/json",
-      "X-RapidAPI-Key": "49dabdc927msh9723b28c4229520p13ac75jsn25be4fb76640",
+      "X-RapidAPI-Key": process.env.RAPID_API_KEY,
       "X-RapidAPI-Host": "realty-in-us.p.rapidapi.com",
     },
     body: JSON.stringify({

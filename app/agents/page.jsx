@@ -1,3 +1,4 @@
+import { AgentsPageContents } from "../(components)";
 import { Box } from "../(components)/chakraui";
 
 const Agents = () => {
@@ -6,7 +7,9 @@ const Agents = () => {
       sx={{
         height: "90vh",
       }}
-    ></Box>
+    >
+      <AgentsPageContents />
+    </Box>
   );
 };
 
