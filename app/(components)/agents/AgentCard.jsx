@@ -1,29 +1,22 @@
 "use client";
 
 import {
-  Badge,
   Box,
-  Button,
-  Center,
   Flex,
-  Grid,
-  GridItem,
   HStack,
   Heading,
   Icon,
   Image,
-  Link,
   Stack,
   Text,
-  useColorModeValue,
 } from "@chakra-ui/react";
+import Link from "next/link";
 
 import { HiLocationMarker } from "react-icons/hi";
 import { MdMail, MdOutlineStar } from "react-icons/md";
-import { FaGlobe } from "react-icons/fa";
+import { FaGlobe, FaExternalLinkAlt } from "react-icons/fa";
 
 export default function AgentCard({ agent }) {
-  console.log(agent);
   return (
     <Flex
       spacing={2}
@@ -38,23 +31,27 @@ export default function AgentCard({ agent }) {
           base: "column",
           sm: "row",
         },
+        position: "relative",
       }}
     >
+      {/* image */}
       <Box
         height="250px"
         flexBasis="30%"
         sx={{
           p: 3,
+          borderRdius: "10px",
         }}
       >
         <Image
           src={agent?.photo?.href}
           alt="profile-photo"
           boxSize="100%"
-          borderRadius="lg"
+          borderRadius="10px"
           objectFit="cover"
         />
       </Box>
+      {/* Agent info */}
       <Box
         bgColor=""
         height="250px"
@@ -79,7 +76,7 @@ export default function AgentCard({ agent }) {
           {/* slogan */}
           {agent?.slogan && (
             <Text fontSize="16px" fontWeight="medium" color="#808191">
-              {agent?.slogan}
+              "{agent?.slogan}"
             </Text>
           )}
 
@@ -139,6 +136,30 @@ export default function AgentCard({ agent }) {
           </HStack>
         </Stack>
       </Box>
+      {/* Link to AgentDetails page */}
+      <Box
+        sx={{
+          position: "absolute",
+          bottom: 3,
+          right: 3,
+        }}
+      >
+        <Link
+          href={`/agents/${agent?.advertiser_id}?nrds_id=${agent?.nrds_id}`}
+        >
+          <Icon
+            sx={{
+              w: 5,
+              h: 5,
+              color: "#808191",
+            }}
+          >
+            <FaExternalLinkAlt />
+          </Icon>
+        </Link>
+      </Box>
     </Flex>
   );
 }
+
+// href={`/agents/${agent?.advertiser_id}?nrds_id=${agent?.nrds_id}`}

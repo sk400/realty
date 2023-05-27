@@ -1,4 +1,38 @@
-Today target -   agentdetail
+image optimizations with proper imge size
+generate static params
+deleting unused files, code
+responsiveness
+commenting
+favicon
+deploy
+authentication
+user profilepage
+saved properties, agents
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

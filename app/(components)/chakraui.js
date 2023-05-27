@@ -22,6 +22,9 @@ import {
   Divider,
   Image,
   VStack,
+  Container,
+  Grid,
+  GridItem,
 } from "@chakra-ui/react";
 
 export {
@@ -47,4 +50,7 @@ export {
   Divider,
   Image,
   VStack,
+  Container,
+  Grid,
+  GridItem,
 };

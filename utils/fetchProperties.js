@@ -11,7 +11,7 @@ export const fetchProperties = async (limit) => {
       limit: limit,
       offset: 0,
       postal_code: "90004",
-      status: ["for_sale", "ready_to_build"],
+      status: ["for_sale"],
       sort: {
         direction: "desc",
         field: "list_price",

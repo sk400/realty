@@ -11,10 +11,10 @@ const Layout = ({ children }) => {
     <Box
       sx={{
         display: "flex",
-        // alignItems: "center",
         height: "100vh",
       }}
     >
+      {/*  Sidebar */}
       <Box
         sx={{
           position: "sticky",
@@ -24,9 +24,12 @@ const Layout = ({ children }) => {
       >
         <Sidebar btnRef={btnRef} isOpen={isOpen} onClose={onClose} />
       </Box>
+      {/* Navbar and Main content */}
       <Box
         sx={{
           width: "100%",
+          height: "100vh",
+          overflowY: "hidden",
         }}
       >
         <Navbar btnRef={btnRef} onOpen={onOpen} />

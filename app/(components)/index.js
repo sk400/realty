@@ -17,6 +17,14 @@ export { default as Agents } from "./agents/Agents";
 export { default as AgentCard } from "./agents/AgentCard";
 export { default as AgentsPageContents } from "./agents/AgentsPageContents";
 
+// PropertyDetails page components
+
+export { default as PropertyDetailsPageComponents } from "./propertyDetails/PropertyDetailsPageContents";
+
+// AgentDetailsPage components
+
+export { default as AgentDetailsPageContents } from "./AgentDetails/AgentDetailsPageContents";
+
 // others
 
 export { default as Login } from "./Login";

@@ -15,6 +15,7 @@
     "@emotion/react": "^11.11.0",
     "@emotion/styled": "^11.11.0",
     "framer-motion": "^10.12.11",
+    "millify": "^6.1.0",
     "mongoose": "^7.1.1",
     "next": "13.4.2",
     "next-auth": "^4.22.1",
