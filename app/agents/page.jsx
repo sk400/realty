@@ -1,7 +1,10 @@
+import { fetchAgents } from "@/utils/fetchAgents";
 import { AgentsPageContents } from "../(components)";
 import { Box } from "../(components)/chakraui";
 
-const Agents = () => {
+const Agents = async () => {
+  const data = await fetchAgents(20);
+  const agents = data?.agents;
   return (
     <Box
       sx={{
@@ -9,7 +12,7 @@ const Agents = () => {
         overflowY: "auto",
       }}
     >
-      <AgentsPageContents />
+      <AgentsPageContents agents={agents} />
     </Box>
   );
 };

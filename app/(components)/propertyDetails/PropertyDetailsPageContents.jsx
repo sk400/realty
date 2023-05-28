@@ -20,10 +20,14 @@ import { FaLongArrowAltLeft } from "react-icons/fa";
 import { FaBed, FaBath, FaHome } from "react-icons/fa";
 import millify from "millify";
 import { locationDetails } from "@/utils/data";
+import { getBigImageUrl } from "@/utils/getBigImageUrl";
+import { getCardUrl } from "@/utils/getCardUrl";
 
 const PropertyDetailsPageContents = ({ propertyDetails }) => {
   const locationData = locationDetails(propertyDetails);
-  // console.log(propertyDetails);
+
+  const bigImage = getBigImageUrl(propertyDetails?.photos[0]?.href);
+  // const propertyImage = getCardUrl()
 
   return (
     <Container
@@ -71,7 +75,7 @@ const PropertyDetailsPageContents = ({ propertyDetails }) => {
         width="100%"
       >
         <Image
-          src={propertyDetails?.photos[0]?.href}
+          src={bigImage}
           boxSize="100%"
           objectFit="cover"
           alt="Dan Abramov"
@@ -298,18 +302,26 @@ const PropertyDetailsPageContents = ({ propertyDetails }) => {
             Property images
           </Heading>
           <Grid templateColumns="repeat(12, 1fr)" gap="20px">
-            {propertyDetails?.photos?.map((item, index) => (
+            {propertyDetails?.photos?.slice(0, 9)?.map((item, index) => (
               <GridItem
                 colSpan={{ base: 12, sm: 6, lg: 4 }}
                 borderRadius="10px"
               >
-                <Image
-                  key={index}
-                  src={item?.href}
-                  objectFit="cover"
-                  boxSize="100%"
-                  borderRadius="10px"
-                />
+                <Box
+                  sx={{
+                    width: "100%",
+                    height: "250px",
+                    borderRadius: "10px",
+                  }}
+                >
+                  <Image
+                    key={index}
+                    src={getCardUrl(item?.href)}
+                    objectFit="cover"
+                    boxSize="100%"
+                    borderRadius="10px"
+                  />
+                </Box>
               </GridItem>
             ))}
           </Grid>

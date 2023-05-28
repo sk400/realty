@@ -1,5 +1,5 @@
 import { fetchProperties } from "@/utils/fetchProperties";
-import { HomePageContents } from "../(components)";
+import { PropertiesPageContents } from "../(components)";
 import { Box } from "../(components)/chakraui";
 
 const Properties = async () => {
@@ -10,7 +10,7 @@ const Properties = async () => {
         height: "90vh",
       }}
     >
-      <HomePageContents properties={properties} />
+      <PropertiesPageContents properties={properties} />
     </Box>
   );
 };

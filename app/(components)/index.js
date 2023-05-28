@@ -10,6 +10,7 @@ export { default as Properties } from "./allproperties/Properties";
 export { default as PropertyCard } from "./allproperties/PropertyCard";
 export { default as Searchbar } from "./allproperties/Searchbar";
 export { default as HomePageContents } from "./allproperties/HomePageContents";
+export { default as PropertiesPageContents } from "./allproperties/PropertiesPageContents";
 
 // Agents page components
 

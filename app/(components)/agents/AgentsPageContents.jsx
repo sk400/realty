@@ -2,10 +2,7 @@ import { fetchAgents } from "@/utils/fetchAgents";
 import { Agents } from "..";
 import { Box, Heading } from "../chakraui";
 
-const AgentsPageContents = async () => {
-  const data = await fetchAgents(10);
-  const agents = data?.agents;
-
+const AgentsPageContents = async ({ agents }) => {
   return (
     <Box
       sx={{

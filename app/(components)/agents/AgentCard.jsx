@@ -15,8 +15,11 @@ import Link from "next/link";
 import { HiLocationMarker } from "react-icons/hi";
 import { MdMail, MdOutlineStar } from "react-icons/md";
 import { FaGlobe, FaExternalLinkAlt } from "react-icons/fa";
+import { getCardUrl } from "@/utils/getCardUrl";
 
 export default function AgentCard({ agent }) {
+  const agentImage = getCardUrl(agent?.photo?.href);
+
   return (
     <Flex
       spacing={2}
@@ -44,7 +47,7 @@ export default function AgentCard({ agent }) {
         }}
       >
         <Image
-          src={agent?.photo?.href}
+          src={agentImage}
           alt="profile-photo"
           boxSize="100%"
           borderRadius="10px"

@@ -1,22 +1,29 @@
 import { AgentCard } from "..";
-import { Box, Flex, SimpleGrid, VStack, Heading } from "../chakraui";
+import { Box, VStack, Heading, Container } from "../chakraui";
 
-const Agents = ({ agents }) => {
+const Agents = ({ agents, hideHeading, mw }) => {
   return (
-    <Box
-      maxWidth="900px"
+    <Container
+      maxWidth={mw || "5xl"}
       sx={{
         p: { base: 2, sm: 5 },
         mx: "auto",
       }}
     >
-      <Heading mb={10}>All available agents in US</Heading>
+      <Heading
+        mb={10}
+        sx={{
+          display: hideHeading ? "none" : "block",
+        }}
+      >
+        All the available agents in US
+      </Heading>
       <VStack alignItems="center" spacing="24px">
         {agents?.map((agent) => (
           <AgentCard key={agent?.id} agent={agent} />
         ))}
       </VStack>
-    </Box>
+    </Container>
   );
 };
 
