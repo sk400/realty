@@ -4,17 +4,16 @@ complete these things before 12.15 pm
 
 
 generate static params
-deleting unused files, code
+
 responsiveness
 commenting
-favicon
+
 adding grid instead of simplegrid for properties
-hide scrollbar
+
 deploy
 
 
 
-fast authentication
 user profilepage
 saved properties, agents
 toasts for feedback
