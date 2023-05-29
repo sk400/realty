@@ -22,10 +22,6 @@ export { default as AgentsPageContents } from "./agents/AgentsPageContents";
 
 export { default as PropertyDetailsPageComponents } from "./propertyDetails/PropertyDetailsPageContents";
 
-// AgentDetailsPage components
-
-export { default as AgentDetailsPageContents } from "./AgentDetails/AgentDetailsPageContents";
-
 // others
 
 export { default as Login } from "./Login";
