@@ -154,7 +154,7 @@ export default function AgentCard({ agent }) {
           right: 3,
         }}
       >
-        {/* <Link href={`/agents/${agent?.advertiser_id}/${agent?.nrds_id}`}>
+        <Link href={`/agents/${agent?.advertiser_id}/${agent?.nrds_id}`}>
           <Icon
             sx={{
               w: 5,
@@ -164,22 +164,7 @@ export default function AgentCard({ agent }) {
           >
             <FaExternalLinkAlt />
           </Icon>
-        </Link> */}
-        <IconButton
-          onClick={() =>
-            router.push(`/agents/${agent?.advertiser_id}/${agent?.nrds_id}`)
-          }
-        >
-          <Icon
-            sx={{
-              w: 5,
-              h: 5,
-              color: "#808191",
-            }}
-          >
-            <FaExternalLinkAlt />
-          </Icon>
-        </IconButton>
+        </Link>
       </Box>
     </Flex>
   );
