@@ -16,7 +16,23 @@ import { HiLocationMarker } from "react-icons/hi";
 import Link from "next/link";
 import { fetchAgentDetails } from "@/utils/fetchAgentDetails";
 import { addressDetails } from "@/utils/data";
-const AgentDetails = async ({ params: { id }, searchParams: { nrds_id } }) => {
+import { fetchAgents } from "@/utils/fetchAgents";
+
+export const dynamicParams = true;
+
+export async function generateStaticParams() {
+  const data = await fetchAgents(20);
+  const agents = data?.agents;
+
+  return agents?.map((agent) => ({
+    slug: [`${agent?.advertiser_id}`, `${agent?.nrds_id}`],
+  }));
+}
+
+const AgentDetails = async ({ params: { slug } }) => {
+  const id = slug[0];
+  const nrds_id = slug[1];
+
   const agentDetails = await fetchAgentDetails(id, nrds_id);
 
   const locationData = addressDetails(agentDetails?.office?.address);
@@ -42,7 +58,7 @@ const AgentDetails = async ({ params: { id }, searchParams: { nrds_id } }) => {
         <Box
           sx={{
             width: "100%",
-            height: "250px",
+            height: { base: "200px", sm: "250px" },
             borderTopRadius: "15px",
           }}
           bgGradient="linear(to-r, #EAA86B, #FE00C6)"
@@ -131,11 +147,15 @@ const AgentDetails = async ({ params: { id }, searchParams: { nrds_id } }) => {
               <FaGlobe />
             </Icon>
 
-            <Link href={agentDetails?.website}>
-              <Text sx={{ fontSize: "16px", fontWeight: "semibold" }}>
-                Website
-              </Text>
-            </Link>
+            {agentDetails?.website ? (
+              <Link href={agentDetails?.website}>
+                <Text sx={{ fontSize: "16px", fontWeight: "semibold" }}>
+                  Website
+                </Text>
+              </Link>
+            ) : (
+              <Text sx={{ fontSize: "16px", fontWeight: "semibold" }}>NA</Text>
+            )}
           </HStack>
           {/* Ratings */}
           <HStack alignItems="center">

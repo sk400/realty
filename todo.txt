@@ -1,16 +1,21 @@
-complete these things before 12.15 pm
+
+
+
+
+
+
+
+
+
+now targets
 ---------------------------------------
 
+icon for saving
+models
+api endpoint
+functionality test
 
 
-generate static params
-
-responsiveness
-commenting
-
-adding grid instead of simplegrid for properties
-
-deploy
 
 
 
@@ -18,17 +23,8 @@ user profilepage
 saved properties, agents
 toasts for feedback
 modals to see images in detail
-
-https://ap.rdcpix.com/62175f0e9f3bb2fccf4d7a533d805b60l-m89989462s.jpg
-
-
-https://ap.rdcpix.com/62175f0e9f3bb2fccf4d7a533d805b60l-m89989462s-w480_h360.jpg
-
-
-divide the url into 2 pieces from the point (.)
-add (-w480_h360) to the url
-combine the two pieces to form new url
-
+adding grid instead of simplegrid for properties
+commenting
 
 
 

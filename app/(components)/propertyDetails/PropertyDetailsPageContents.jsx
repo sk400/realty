@@ -267,7 +267,14 @@ const PropertyDetailsPageContents = ({ propertyDetails }) => {
 
             {/* Schools */}
             <Box>
-              <Heading mb={2} fontSize="26px" fontWeight="medium">
+              <Heading
+                mb={2}
+                fontSize="26px"
+                fontWeight="medium"
+                sx={{
+                  mt: { base: 5, sm: 0, md: 0, lg: 0, xl: 0 },
+                }}
+              >
                 Schools
               </Heading>
               <Divider

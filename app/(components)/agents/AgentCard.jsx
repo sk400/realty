@@ -6,19 +6,22 @@ import {
   HStack,
   Heading,
   Icon,
+  IconButton,
   Image,
   Stack,
   Text,
 } from "@chakra-ui/react";
-import Link from "next/link";
 
 import { HiLocationMarker } from "react-icons/hi";
 import { MdMail, MdOutlineStar } from "react-icons/md";
 import { FaGlobe, FaExternalLinkAlt } from "react-icons/fa";
 import { getCardUrl } from "@/utils/getCardUrl";
+import { Link } from "@chakra-ui/next-js";
+import { useRouter } from "next/navigation";
 
 export default function AgentCard({ agent }) {
   const agentImage = getCardUrl(agent?.photo?.href);
+  const router = useRouter();
 
   return (
     <Flex
@@ -116,9 +119,13 @@ export default function AgentCard({ agent }) {
                 <FaGlobe />
               </Icon>
 
-              <Link href={agent?.web_url}>
-                <Text>Website</Text>
-              </Link>
+              {agent?.web_url ? (
+                <Link href={agent?.web_url}>
+                  <Text>Website</Text>
+                </Link>
+              ) : (
+                <Text>NA</Text>
+              )}
             </HStack>
           </Box>
 
@@ -147,8 +154,21 @@ export default function AgentCard({ agent }) {
           right: 3,
         }}
       >
-        <Link
-          href={`/agents/${agent?.advertiser_id}?nrds_id=${agent?.nrds_id}`}
+        {/* <Link href={`/agents/${agent?.advertiser_id}/${agent?.nrds_id}`}>
+          <Icon
+            sx={{
+              w: 5,
+              h: 5,
+              color: "#808191",
+            }}
+          >
+            <FaExternalLinkAlt />
+          </Icon>
+        </Link> */}
+        <IconButton
+          onClick={() =>
+            router.push(`/agents/${agent?.advertiser_id}/${agent?.nrds_id}`)
+          }
         >
           <Icon
             sx={{
@@ -159,7 +179,7 @@ export default function AgentCard({ agent }) {
           >
             <FaExternalLinkAlt />
           </Icon>
-        </Link>
+        </IconButton>
       </Box>
     </Flex>
   );

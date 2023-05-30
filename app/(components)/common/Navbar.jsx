@@ -47,7 +47,7 @@ const Navbar = ({ btnRef, onOpen }) => {
         ref={btnRef}
         onClick={onOpen}
         sx={{
-          display: { md: "none" },
+          display: { lg: "none" },
         }}
       >
         <HamburgerIcon />

@@ -7,12 +7,16 @@ export const fetchAgentDetails = async (advertiser_id, nrds_id) => {
       "X-RapidAPI-Key": process.env.RAPID_API_KEY,
       "X-RapidAPI-Host": "realty-in-us.p.rapidapi.com",
     },
+    next: { revalidate: 86400 },
   };
 
   try {
     const response = await fetch(url, options);
-    const result = await response.json();
-    return result;
+    if (!response.ok) {
+      throw new Error("Failed to fetch properties data");
+    }
+
+    return response.json();
   } catch (error) {
     console.error(error);
   }

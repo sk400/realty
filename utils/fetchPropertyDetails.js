@@ -11,8 +11,11 @@ export const fetchPropertyDetails = async (id) => {
 
   try {
     const response = await fetch(url, options);
-    const result = await response.json();
-    return result;
+    if (!response.ok) {
+      throw new Error("Failed to fetch properties data");
+    }
+
+    return response.json();
   } catch (error) {
     console.error(error);
   }

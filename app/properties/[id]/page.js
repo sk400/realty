@@ -3,6 +3,8 @@ import { fetchProperties } from "@/utils/fetchProperties";
 import { fetchPropertyDetails } from "@/utils/fetchPropertyDetails";
 import React from "react";
 
+export const dynamicParams = true;
+
 export async function generateStaticParams() {
   const data = await fetchProperties(50);
 
