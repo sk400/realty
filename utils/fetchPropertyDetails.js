@@ -7,6 +7,7 @@ export const fetchPropertyDetails = async (id) => {
       "X-RapidAPI-Key": process.env.RAPID_API_KEY,
       "X-RapidAPI-Host": "realty-in-us.p.rapidapi.com",
     },
+    next: { revalidate: 86400 },
   };
 
   try {

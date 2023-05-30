@@ -1,6 +1,7 @@
 
 
-
+fix homepage
+fix properties page
 
 
 
