@@ -100,7 +100,7 @@ const Sidebar = ({ btnRef, isOpen, onClose }) => {
             </VStack>
           </DrawerBody>
 
-          <DrawerFooter>
+          {/* <DrawerFooter>
             <IconButton
               bg="#fafafa"
               sx={{
@@ -124,7 +124,7 @@ const Sidebar = ({ btnRef, isOpen, onClose }) => {
                 <MdLogout />
               </Icon>
             </IconButton>
-          </DrawerFooter>
+          </DrawerFooter> */}
         </DrawerContent>
       </Drawer>
 
@@ -192,7 +192,7 @@ const Sidebar = ({ btnRef, isOpen, onClose }) => {
           ))}
         </VStack>
         {/* Logout button */}
-        <IconButton
+        {/* <IconButton
           bg="#fafafa"
           sx={{
             "&:hover": {
@@ -218,7 +218,7 @@ const Sidebar = ({ btnRef, isOpen, onClose }) => {
           >
             <MdLogout />
           </Icon>
-        </IconButton>
+        </IconButton> */}
       </Box>
     </Box>
   );

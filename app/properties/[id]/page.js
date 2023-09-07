@@ -18,7 +18,6 @@ export async function generateStaticParams() {
 const PropertyDetail = async ({ params }) => {
   const data = await fetchPropertyDetails(params?.id);
   const propertyDetails = data?.data?.home;
-  console.log(propertyDetails);
 
   return (
     <div>
