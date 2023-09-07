@@ -3,6 +3,7 @@ import {
   Avatar,
   Box,
   Button,
+  Center,
   Flex,
   HStack,
   IconButton,
@@ -10,26 +11,11 @@ import {
   Text,
 } from "@chakra-ui/react";
 import { HamburgerIcon } from "@chakra-ui/icons";
-import { getProviders, signIn, useSession } from "next-auth/react";
-import { usePathname, useRouter } from "next/navigation";
+
 import { FcGoogle } from "react-icons/fc";
-import { useEffect, useState } from "react";
+import Image from "next/image";
 
 const Navbar = ({ btnRef, onOpen }) => {
-  const { data: session } = useSession();
-  const router = useRouter();
-  // const pathname = usePathname();
-  const [providers, setProviders] = useState([]);
-
-  useEffect(() => {
-    const setupProviders = async () => {
-      const res = await getProviders();
-      setProviders(res);
-    };
-
-    setupProviders();
-  }, []);
-
   return (
     <Flex
       direction="row"
@@ -43,6 +29,15 @@ const Navbar = ({ btnRef, onOpen }) => {
         right: 0,
       }}
     >
+      <Center height="100px">
+        <Image
+          src="/assets/logo.png"
+          width={100}
+          height={50}
+          alt="realty logo"
+        />
+      </Center>
+      <Spacer />
       <IconButton
         ref={btnRef}
         onClick={onOpen}
@@ -52,8 +47,8 @@ const Navbar = ({ btnRef, onOpen }) => {
       >
         <HamburgerIcon />
       </IconButton>
-      <Spacer />
-      {session?.user ? (
+
+      {/* {session?.user ? (
         <HStack spacing={5}>
           <Text fontSize="sm">{session?.user?.name}</Text>
           <Avatar name="Dan Abrahmov" src={session?.user?.image} />
@@ -82,7 +77,7 @@ const Navbar = ({ btnRef, onOpen }) => {
             </Button>
           ))}
         </>
-      )}
+      )} */}
     </Flex>
   );
 };
