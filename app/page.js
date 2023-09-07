@@ -1,7 +1,8 @@
 import { fetchProperties } from "@/utils/fetchProperties";
-import { HomePageContents } from "./(components)";
+import { HomePageContents, Loader } from "./(components)";
 import { Box } from "./(components)/chakraui";
 import { fetchAgents } from "@/utils/fetchAgents";
+import { Suspense } from "react";
 
 const Home = async () => {
   const propertyData = await fetchProperties(5);
@@ -17,7 +18,9 @@ const Home = async () => {
         overflowY: "scroll",
       }}
     >
-      <HomePageContents properties={properties} agents={agents} />
+      <Suspense fallback={<Loader />}>
+        <HomePageContents properties={properties} agents={agents} />
+      </Suspense>
     </Box>
   );
 };

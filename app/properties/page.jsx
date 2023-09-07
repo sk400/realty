@@ -1,6 +1,7 @@
 import { fetchProperties } from "@/utils/fetchProperties";
-import { PropertiesPageContents } from "../(components)";
+import { Loader, PropertiesPageContents } from "../(components)";
 import { Box } from "../(components)/chakraui";
+import { Suspense } from "react";
 
 const Properties = async () => {
   const properties = await fetchProperties(50);
@@ -10,7 +11,9 @@ const Properties = async () => {
         height: "90vh",
       }}
     >
-      <PropertiesPageContents properties={properties} />
+      <Suspense fallback={<Loader />}>
+        <PropertiesPageContents properties={properties} />
+      </Suspense>
     </Box>
   );
 };

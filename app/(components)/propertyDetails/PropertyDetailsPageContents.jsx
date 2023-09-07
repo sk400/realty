@@ -27,7 +27,6 @@ const PropertyDetailsPageContents = ({ propertyDetails }) => {
   const locationData = locationDetails(propertyDetails);
 
   const bigImage = getBigImageUrl(propertyDetails?.photos[0]?.href);
-  // const propertyImage = getCardUrl()
 
   return (
     <Container

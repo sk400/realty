@@ -1,7 +1,7 @@
-import { PropertyDetailsPageComponents } from "@/app/(components)";
+import { Loader, PropertyDetailsPageComponents } from "@/app/(components)";
 import { fetchProperties } from "@/utils/fetchProperties";
 import { fetchPropertyDetails } from "@/utils/fetchPropertyDetails";
-import React from "react";
+import React, { Suspense } from "react";
 
 export const dynamicParams = true;
 
@@ -18,10 +18,13 @@ export async function generateStaticParams() {
 const PropertyDetail = async ({ params }) => {
   const data = await fetchPropertyDetails(params?.id);
   const propertyDetails = data?.data?.home;
+  console.log(propertyDetails);
 
   return (
     <div>
-      <PropertyDetailsPageComponents propertyDetails={propertyDetails} />
+      <Suspense fallback={<Loader />}>
+        <PropertyDetailsPageComponents propertyDetails={propertyDetails} />
+      </Suspense>
     </div>
   );
 };

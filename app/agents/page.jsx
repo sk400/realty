@@ -1,6 +1,7 @@
 import { fetchAgents } from "@/utils/fetchAgents";
-import { AgentsPageContents } from "../(components)";
+import { AgentsPageContents, Loader } from "../(components)";
 import { Box } from "../(components)/chakraui";
+import { Suspense } from "react";
 
 const Agents = async () => {
   const data = await fetchAgents(20);
@@ -12,7 +13,9 @@ const Agents = async () => {
         overflowY: "auto",
       }}
     >
-      <AgentsPageContents agents={agents} />
+      <Suspense fallback={<Loader />}>
+        <AgentsPageContents agents={agents} />
+      </Suspense>
     </Box>
   );
 };

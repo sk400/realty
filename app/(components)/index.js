@@ -3,6 +3,7 @@ export { default as Navbar } from "./common/Navbar";
 export { default as Sidebar } from "./common/Sidebar";
 export { default as Layout } from "./common/Layout";
 export { default as ListItem } from "./common/ListItem";
+export { default as Loader } from "./common/Loader";
 
 // AllProperties page components
 

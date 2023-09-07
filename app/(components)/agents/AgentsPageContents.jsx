@@ -1,4 +1,3 @@
-import { fetchAgents } from "@/utils/fetchAgents";
 import { Agents } from "..";
 import { Box, Heading } from "../chakraui";
 
